@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-4)d_+p57m!vc!14it=7h8vu9%gyf-y8#hxh#q=%i(29@wzci62
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '192.168.2.102',
+    '192.168.2.105',
     '127.0.0.1'
 
 ]
@@ -41,11 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'djoser',
-    'myauth'
+    'myauth',
+    'meeting',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -53,7 +56,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+CORS_ORIGIN_ALLOW_ALL = True
 ROOT_URLCONF = 'CourtSystem.urls'
 
 TEMPLATES = [
@@ -83,7 +86,7 @@ SIMPLE_JWT = {
 }
 DJOSER = {
     'SERIALIZERS': {
-         'user_create': 'myauth.serializer.UserRegistrationSerializer'
+        'user_create': 'myauth.serializer.UserRegistrationSerializer'
     }
 }
 

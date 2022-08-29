@@ -50,6 +50,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['gender']=user.gender
         token["is_admin"] = user.is_staff
         token["is_superuser"]=user.is_superuser
+        token['ph_no']=user.ph_no
 
         return token
 
