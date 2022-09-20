@@ -10,6 +10,7 @@ class Lawyer(models.Model):
     location = models.CharField(max_length=255)
     ph_no = models.CharField(max_length=255, blank=False, default="")
     gender = models.CharField(max_length=255, blank=True)
+    type = models.CharField(max_length=255, blank=False, default='none')
     is_registered = models.BooleanField(default=False)
     doc_image = models.ImageField(upload_to="lawyerDocs", blank=True)
 
