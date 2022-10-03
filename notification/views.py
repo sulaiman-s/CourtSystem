@@ -65,7 +65,7 @@ class ClientNot(APIView):
     def get(self, request, name):
         Clientnot = ClientNotification.objects.filter(
             client_name__contains=name)
-        se = LawyerNotificationSerializer(Clientnot, many=True)
+        se = ClientNotificationSerailizer(Clientnot, many=True)
         return Response(se.data)
 
     def post(self, request, name):
