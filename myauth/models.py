@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -19,3 +20,8 @@ class User(AbstractUser):
     location = models.CharField(max_length=255, blank=True)
     gender = models.CharField(max_length=255, blank=True)
     ph_no = models.CharField(max_length=255, blank=False, default="")
+
+
+class ProfilePic(models.Model):
+    name = models.CharField(max_length=255)
+    profile_img = models.ImageField(upload_to='profiles', blank=False)

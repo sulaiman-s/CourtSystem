@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'myauth',
     'meeting',
     'Clients',
+    'feedback',
     'notification',
     'corsheaders'
 ]

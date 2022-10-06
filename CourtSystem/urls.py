@@ -26,6 +26,7 @@ urlpatterns = [
     path('user/', include('myauth.urls')),
     path('meet/', include('meeting.urls')),
     path('client/', include('Clients.urls')),
-    path('notification/', include('notification.urls'))
+    path('notification/', include('notification.urls')),
+    path('feed/', include('feedback.urls'))
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
