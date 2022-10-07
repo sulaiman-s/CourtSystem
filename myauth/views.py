@@ -99,8 +99,8 @@ class Profiles(APIView):
 
 class ProfilesSpec(APIView):
     def get(self, request, name):
-        pf = ProfilePic.objects.filter(name__exact=name)
-        pf_s = ProfileSerializer(pf, many=True)
+        pf = ProfilePic.objects.filter(name__exact=name).first()
+        pf_s = ProfileSerializer(pf)
         return Response(pf_s.data)
 
     def patch(self, request, id):
