@@ -10,13 +10,15 @@ from .models import MeetingRequest, Meetings
 class MeetingRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = MeetingRequest
-        fields = ('id', 'client_name', 'lawyer_name', 'time', 'meeting_Status', 'meeting_type','meeting_Location')
+        fields = ('id', 'client_name', 'lawyer_name', 'time', 'meeting_Status',
+                  'meeting_type', 'meeting_Location', 'description')
 
 
 class MeetingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Meetings
-        fields = ('id', 'client_name', 'lawyer_name', 'time', 'meeting_type','meeting_Location')
+        fields = ('id', 'client_name', 'lawyer_name', 'time',
+                  'meeting_type', 'meeting_Location', 'description')
 
 
 class MeetingRequestView(APIView):
@@ -35,7 +37,8 @@ class MeetingRequestView(APIView):
 class MeetingRequestViewId(APIView):
     def patch(self, request, id):
         mt_to_update = MeetingRequest.objects.get(pk=id)
-        mt_s = MeetingRequestSerializer(mt_to_update, data=request.data, partial=True)
+        mt_s = MeetingRequestSerializer(
+            mt_to_update, data=request.data, partial=True)
         mt_s.is_valid(raise_exception=True)
         mt_s.save()
         return Response(mt_s.data)
