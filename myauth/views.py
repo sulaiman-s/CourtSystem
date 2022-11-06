@@ -39,8 +39,13 @@ class LawyerView(APIView):
     def post(self, request):
         serialize = LawyerSerializer(data=request.data)
         serialize.is_valid(raise_exception=True)
+        check_in_registered_user = User.objects.filter(
+            username__exact=request.data['username'])
+        if check_in_registered_user.count() > 0:
+            print(check_in_registered_user.count())
+            return Response("user with this user already exist")
         serialize.save()
-        return Response("data sent successfuly")
+        return Response("data save successfuly")
 
 
 class LawyerId(APIView):
