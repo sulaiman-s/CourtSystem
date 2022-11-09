@@ -44,7 +44,7 @@ class LawyerView(APIView):
         if check_in_registered_user.count() > 0:
             return Response("user with this user already exist")
         serialize.save()
-        return Response("data save successfuly")
+        return Response("Data save successfuly")
 
 
 class LawyerId(APIView):
