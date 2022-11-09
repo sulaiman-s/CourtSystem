@@ -12,7 +12,7 @@ from .models import Lawyer, User, ProfilePic
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'password',
+        fields = ['id', 'username','fullname', 'password',
                   'email', 'location', 'gender', 'ph_no']
 
 
@@ -27,7 +27,7 @@ class LawyerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lawyer
         fields = ['id', 'username', 'password', 'email', 'location',
-                  'gender', 'doc_image', 'is_registered', 'ph_no', 'type']
+                  'gender','fullname', 'doc_image', 'is_registered', 'ph_no', 'type']
 
 
 class LawyerView(APIView):
@@ -113,4 +113,4 @@ class ProfilesSpec(APIView):
     def delete(self, request, id):
         pf_d = ProfilePic.objects.get(pk=id)
         pf_d.delete()
-        return Response('deleted successfully')
+        return Response('Deleted successfully')

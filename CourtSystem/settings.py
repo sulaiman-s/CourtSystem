@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-4)d_+p57m!vc!14it=7h8vu9%gyf-y8#hxh#q=%i(29@wzci62
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '192.168.2.104',
+    '192.168.43.31',
     '127.0.0.1'
 
 ]
@@ -127,8 +127,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'sulaimanfarooqi526@gmail.com'
-EMAIL_HOST_PASSWORD = 'xmxioayrmwppxzlg'
+EMAIL_HOST_USER = 'judiciarycanon@gmail.com'
+EMAIL_HOST_PASSWORD = 'nbpgxmbatdrxajsx'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/

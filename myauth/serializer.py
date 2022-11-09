@@ -4,4 +4,4 @@ from djoser.serializers import UserCreateSerializer as BaseUserRegistrationSeria
 class UserRegistrationSerializer(BaseUserRegistrationSerializer):
     class Meta(BaseUserRegistrationSerializer.Meta):
         fields = ('username', 'email', 'location',
-                  'password', 'is_staff', 'gender', 'ph_no')
+                  'password', 'is_staff', 'gender', 'ph_no','fullname')
