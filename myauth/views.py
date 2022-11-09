@@ -3,6 +3,7 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.views import APIView
 from rest_framework import serializers
+from rest_framework import status
 from rest_framework.response import Response
 from .models import Lawyer, User, ProfilePic
 
@@ -42,7 +43,8 @@ class LawyerView(APIView):
         check_in_registered_user = User.objects.filter(
             username__exact=request.data['username'])
         if check_in_registered_user.count() > 0:
-            return Response("user with this user already exist")
+            content = {'username': 'username already exist'}
+            return Response(content, status=status.HTTP_400_BAD_REQUEST)
         serialize.save()
         return Response("data save successfuly")
 
