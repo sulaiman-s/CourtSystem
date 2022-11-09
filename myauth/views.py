@@ -28,7 +28,7 @@ class LawyerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lawyer
         fields = ['id', 'username', 'password', 'email', 'location',
-                  'gender', 'doc_image', 'is_registered', 'ph_no', 'type']
+                  'gender', 'doc_image', 'is_registered', 'ph_no', 'type', 'fullname']
 
 
 class LawyerView(APIView):
@@ -46,7 +46,7 @@ class LawyerView(APIView):
             content = {'username': 'username already exist'}
             return Response(content, status=status.HTTP_400_BAD_REQUEST)
         serialize.save()
-        return Response("data save successfuly")
+        return Response("Data save successfuly")
 
 
 class LawyerId(APIView):
