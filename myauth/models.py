@@ -13,12 +13,14 @@ class Lawyer(models.Model):
     gender = models.CharField(max_length=255, blank=True)
     type = models.CharField(max_length=255, blank=False, default='none')
     is_registered = models.BooleanField(default=False)
+    fullname = models.CharField(max_length=255, unique=False, default='none' )
     doc_image = models.ImageField(upload_to="lawyerDocs", blank=True)
 
 
 class User(AbstractUser):
     location = models.CharField(max_length=255, blank=True)
     gender = models.CharField(max_length=255, blank=True)
+    fullname = models.CharField(max_length=255, unique=False, default='none')
     ph_no = models.CharField(max_length=255, blank=False, default="")
 
 

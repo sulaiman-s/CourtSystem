@@ -27,7 +27,7 @@ class LawyerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lawyer
         fields = ['id', 'username', 'password', 'email', 'location',
-                  'gender', 'doc_image', 'is_registered', 'ph_no', 'type']
+                  'gender', 'doc_image', 'is_registered', 'ph_no', 'type', 'fullname']
 
 
 class LawyerView(APIView):
